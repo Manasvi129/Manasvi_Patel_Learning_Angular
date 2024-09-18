@@ -1,7 +1,25 @@
 <html>
-<title>welcome to my project</title>
+<title>Welcome to my project</title>
 <body>
-My name is {{name}}
-My age is {{age}}
+<div class="personal-info">
+  <h2>Personal Information</h2>
+  <p>My name is {{name}}</p>
+  <p>My age is {{age}}</p>
+</div>
+
+<div class="jewel-container">
+  <h2>Jewel Collection</h2>
+
+  <div *ngFor="let jewel of jewels" class="jewel-item">
+    <h3>{{jewel.name}}</h3>
+    <p><strong>Type:</strong> {{jewel.type}}</p>
+    <p><strong>Carat Weight:</strong> {{jewel.caratWeight}}</p>
+    <p><strong>Price:</strong> ${{jewel.price}}</p>
+
+    <div *ngIf="jewel.description">
+      <p><strong>Description:</strong> {{jewel.description}}</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
