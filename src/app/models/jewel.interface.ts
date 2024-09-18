@@ -9,3 +9,6 @@ export interface JewelInterface {
 
 
 }
+
+export class Jewel {
+}
