@@ -1,82 +1,80 @@
-/* General Styles */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #ecf0f1; /* Light background color */
-  color: #333; /* Dark text color */
-  line-height: 1.6; /* Improved line height for readability */
-  padding: 20px; /* Padding around the body */
-  max-width: 800px; /* Maximum width for content */
-  margin: 0 auto; /* Center the content */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 25px;
+  background-color: #e6f2ff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Personal Information Section */
-.personal-info, .jewel-container {
-  background-color: white; /* White background for sections */
-  padding: 20px; /* Padding inside sections */
-  margin-bottom: 30px; /* Space between sections */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-}
-
-/* Headings Styles */
 h2 {
-  color: #3498db; /* Primary color for headings */
-  border-bottom: 2px solid #3498db; /* Underline effect */
-  padding-bottom: 10px; /* Space below heading */
-  margin-top: 0; /* Remove top margin */
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-h3 {
-  color: #2c3e50; /* Secondary color for subheadings */
+.jewel-card {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 }
 
-/* Jewel Item Styles */
-.jewel-item {
-  background-color: #f7f9fa; /* Slightly darker background for items */
-  border-left: 4px solid #3498db; /* Left border to highlight item */
-  padding: 15px; /* Padding inside jewel items */
-  margin-bottom: 20px; /* Space between items */
-  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+.jewel-card h3 {
+  margin: 0 0 15px 0;
+  color: #e67e22;
+  font-size: 1.8em;
+  border-bottom: 2px solid #e67e22;
+  padding-bottom: 10px;
 }
 
-.jewel-item:hover {
-  transform: translateX(5px); /* Move item slightly on hover */
+.jewel-card p {
+  margin: 8px 0;
+  color: #34495e;
+  font-size: 1.1em;
+
+  &:nth-child(even) {
+    background-color: #f7f9fc;
+    padding: 5px;
+    border-radius: 4px;
+  }
 }
 
-/* Paragraph Styles within Jewel Items */
-.jewel-item p {
-  margin: 8px 0; /* Margin for paragraphs in jewel items */
+.toggle-button {
+  margin-top: 15px;
+  padding: 8px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1em;
+
+  &:hover {
+    background-color: #2980b9;
+  }
 }
 
-/* Strong Text Styles within Jewel Items */
-.jewel-item strong {
-  color: #2c3e50; /* Secondary color for strong text */
-}
-
-/* Responsive Design for Smaller Screens */
 @media (max-width: 600px) {
-  body {
-    padding: 10px; /* Reduced padding on smaller screens */
+  .container {
+    padding: 15px;
   }
 
-  .personal-info, .jewel-container {
-    padding: 15px; /* Reduced padding inside sections on smaller screens */
+  .jewel-card {
+    padding: 15px;
   }
-}
 
-/* Custom Button Style (if you want to add a button later) */
-.custom-button {
-  background-color: #3498db; /* Button background color */
-  color: white; /* Text color for button */
-  border: none; /* No border for button */
-  padding: 10px 20px; /* Padding inside button */
-  border-radius: 8px; /* Rounded corners for button */
-  cursor: pointer; /* Pointer cursor on hover */
-
-  transition: background-color 0.3s ease; /* Smooth transition on hover */
-
-}
-
-.custom-button:hover {
-  background-color: #2980b9; /* Darker shade on hover for button */
+  h2 {
+    font-size: 1.8em;
+  }
 }
