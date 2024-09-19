@@ -1,25 +1,15 @@
-<html>
-<title>Welcome to my project</title>
-<body>
-<div class="personal-info">
-  <h2>Personal Information</h2>
-  <p>My name is {{name}}</p>
-  <p>My age is {{age}}</p>
-</div>
-
-<div class="jewel-container">
-  <h2>Jewel Collection</h2>
-
-  <div *ngFor="let jewel of jewels" class="jewel-item">
-    <h3>{{jewel.name}}</h3>
-    <p><strong>Type:</strong> {{jewel.type}}</p>
-    <p><strong>Carat Weight:</strong> {{jewel.caratWeight}}</p>
-    <p><strong>Price:</strong> ${{jewel.price}}</p>
-
-    <div *ngIf="jewel.description">
-      <p><strong>Description:</strong> {{jewel.description}}</p>
-    </div>
+<div class="container">
+  <h2>Jewel Catalog</h2>
+  <div *ngFor="let jewel of jewelList" class="jewel-card">
+    <h3>{{ jewel.name }}</h3>
+    <p>ID: {{ jewel.id }}</p>
+    <p>Type: {{ jewel.type }}</p>
+    <p>Carat Weight: {{ jewel.caratWeight }}</p>
+    <p>Price: ${{ jewel.price }}</p>
+    <p>Description: {{ jewel.description ? jewel.description : 'No description available' }}</p>
+    <!-- button to toggle description -->
+    <button (click)="toggleDescription(jewel)" class="toggle-button">
+      {{ jewel.description ? 'Hide' : 'Show' }} Description
+    </button>
   </div>
 </div>
-</body>
-</html>
