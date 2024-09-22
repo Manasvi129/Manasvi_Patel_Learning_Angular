@@ -1,15 +1,3 @@
-<div class="container">
-  <h2>Jewel Catalog</h2>
-  <div *ngFor="let jewel of jewelList" class="jewel-card">
-    <h3>{{ jewel.name }}</h3>
-    <p>ID: {{ jewel.id }}</p>
-    <p>Type: {{ jewel.type }}</p>
-    <p>Carat Weight: {{ jewel.caratWeight }}</p>
-    <p>Price: ${{ jewel.price }}</p>
-    <p>Description: {{ jewel.description ? jewel.description : 'No description available' }}</p>
-    <!-- button to toggle description -->
-    <button (click)="toggleDescription(jewel)" class="toggle-button">
-      {{ jewel.description ? 'Hide' : 'Show' }} Description
-    </button>
-  </div>
-</div>
+<jewellery-list>
+
+</jewellery-list>
