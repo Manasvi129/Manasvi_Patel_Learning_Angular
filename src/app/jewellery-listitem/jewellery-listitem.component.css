@@ -1,5 +1,7 @@
-.jewellery-item {
-  border: 2px solid black;
-  padding: 10px;
-  margin-bottom: 10px;
+.jewellery-item img {
+  max-width: 100%; /* Ensures the image does not exceed the width of its container */
+  height: auto;    /* Maintains aspect ratio */
+  max-height: 200px; /* Set a maximum height for the image */
+  display: block;  /* Ensures there are no gaps below the image */
+  margin: 0 auto;  /* Centers the image horizontally */
 }
