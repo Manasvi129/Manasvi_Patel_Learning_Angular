@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-jewellery-listlitem',
@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './jewellery-listlitem.component.html',
   styleUrl: './jewellery-listlitem.component.css'
 })
-export class JewelleryListlitemComponent {
-
+export class ContentListItemComponent {
+  @Input() jewellery!: any;
 }

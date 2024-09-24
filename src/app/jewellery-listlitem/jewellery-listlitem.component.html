@@ -1,1 +1,7 @@
-<p>jewellery-listlitem works!</p>
+<div class="jewellery-item" style="border: 2px solid black; padding: 10px; margin: 10px;">
+  <h3>{{ jewellery.name }}</h3>
+  <p>Type: {{ jewellery.type }}</p>
+  <p>Material: {{ jewellery.material }}</p>
+  <p>Price: ${{ jewellery.price }}</p>
+  <p>Description: {{ jewellery.description ? jewellery.description : 'No description available' }}</p>
+</div>

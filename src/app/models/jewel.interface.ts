@@ -1,4 +1,4 @@
-export interface Jewel {
+export interface Jewellery {
   id: number,               // Unique identifier for the jewel
   name: string,            // Name of the jewel
   type: string,            // Type of jewel (e.g., ring, necklace)
