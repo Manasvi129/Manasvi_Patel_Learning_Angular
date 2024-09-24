@@ -1,0 +1,7 @@
+.even-item {
+  background-color: pink; /* Background color for even items */
+}
+
+.odd-item {
+  background-color: teal; /* Background color for odd items */
+}
