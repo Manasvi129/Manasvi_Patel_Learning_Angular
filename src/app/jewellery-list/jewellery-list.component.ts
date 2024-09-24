@@ -1,64 +1,72 @@
-import { Component, Input} from '@angular/core';
+import {JewelleryListItemComponent} from "../jewellery-listitem/jewellery-listlitem.component";
 
 interface Jewellery {
   id: number;
-  name: string;
+  title: string;
+  description: string;
+  creator: string;
+  imgURL: string;
   type: string;
-  material: string;
   price: number;
-  description?: string;
 }
 
+import { Component } from '@angular/core';
+
 @Component({
-  selector: 'app-jewellery-list',
-  standalone: true,
-  imports: [],
+  selector: 'jewellery-list',
   templateUrl: './jewellery-list.component.html',
-  styleUrl: './jewellery-list.component.css'
+  standalone: true,
+  imports: [
+    JewelleryListItemComponent
+  ],
+  styleUrls: ['./jewellery-list.component.css']
 })
 export class JewelleryListComponent {
-  @Input() jewellery!: Jewellery; // Accepts a jewellery item as input
-  jewelleryList: Jewellery[] = [
+  jewelleryItems: Jewellery[] = [
     {
       id: 1,
-      name: "Diamond Solitaire Ring",
+      title: "Diamond Solitaire Ring",
+      description: "A classic 1-carat diamond solitaire set in 18k white gold.",
+      creator: "Tiffany & Co.",
+      imgURL: "https://example.com/diamond-ring.jpg",
       type: "Ring",
-      material: "18K White Gold",
-      price: 2999,
-      description: "Classic diamond solitaire ring, perfect for engagements."
+      price: 5999.99
     },
     {
       id: 2,
-      name: "Pearl Necklace",
+      title: "Pearl Necklace",
+      description: "Elegant strand of cultured Akoya pearls with a 14k gold clasp.",
+      creator: "Mikimoto",
+      imgURL: "https://example.com/pearl-necklace.jpg",
       type: "Necklace",
-      material: "Cultured Freshwater Pearls",
-      price: 599,
-      description: "Elegant strand of cultured freshwater pearls."
+      price: 2500.00
     },
     {
       id: 3,
-      name: "Sapphire Stud Earrings",
+      title: "Sapphire Stud Earrings",
+      description: "Beautiful blue sapphire studs set in platinum.",
+      creator: "Blue Nile",
+      imgURL: "https://example.com/sapphire-earrings.jpg",
       type: "Earrings",
-      material: "14K Yellow Gold",
-      price: 799,
-      description: "Beautiful blue sapphire studs set in yellow gold."
+      price: 1200.00
     },
     {
       id: 4,
-      name: "Gold Chain Bracelet",
+      title: "Gold Chain Bracelet",
+      description: "18k gold chain bracelet with a lobster clasp.",
+      creator: "Cartier",
+      imgURL: "https://example.com/gold-bracelet.jpg",
       type: "Bracelet",
-      material: "14K Gold",
-      price: 449,
-      description: "Delicate gold chain bracelet, perfect for everyday wear."
+      price: 3500.00
     },
     {
       id: 5,
-      name: "Emerald Pendant",
+      title: "Emerald Pendant",
+      description: "Stunning emerald pendant surrounded by diamonds, set in white gold.",
+      creator: "Harry Winston",
+      imgURL: "https://example.com/emerald-pendant.jpg",
       type: "Pendant",
-      material: "Sterling Silver",
-      price: 349,
-      description: "Stunning emerald pendant on a sterling silver chain."
-
+      price: 7500.00
     }
   ];
 }

@@ -1,6 +1,10 @@
-<div class="container">
-  <h2>Jewellery Catalog</h2>
-
-  <app-jewellery-list-item *ngFor="let jewellery of jewelleryList"></app-jewellery-list-item>
-
+<div class="jewellery-list">
+  <jewellery-list-item *ngFor="let item of jewelleryItems"
+                       [title]="item.title"
+                       [description]="item.description"
+                       [creator]="item.creator"
+                       [imgURL]="item.imgURL"
+                       [type]="item.type"
+                       [price]="item.price">
+  </jewellery-list-item>
 </div>
