@@ -1,17 +1,16 @@
+import { Component } from '@angular/core';
 import {JewelleryListItemComponent} from "../jewellery-listitem/jewellery-listitem.component";
+import {NgClass} from "@angular/common";
 
 interface Jewellery {
   id: number;
   title: string;
   description: string;
   creator: string;
-  imgURL: string;
+  imgURL: string; // Image URL
   type: string;
   price: number;
 }
-
-import { Component } from '@angular/core';
-import {NgClass, NgStyle} from "@angular/common";
 
 @Component({
   selector: 'jewellery-list',
@@ -19,7 +18,6 @@ import {NgClass, NgStyle} from "@angular/common";
   standalone: true,
   imports: [
     JewelleryListItemComponent,
-    NgStyle,
     NgClass
   ],
   styleUrls: ['./jewellery-list.component.css']
@@ -29,16 +27,16 @@ export class JewelleryListComponent {
     {
       id: 1,
       title: "Diamond Solitaire Ring",
-      description: "A classic 1-carat diamond solitaire set in 18k white gold.",
+      description: "A classic diamond solitaire set in white gold.",
       creator: "Tiffany & Co.",
-      imgURL: "https://example.com/diamond-ring.jpg",
+      imgURL: "https://example.com/diamond-ring.jpg", // Unique image for each item
       type: "Ring",
       price: 5999.99
     },
     {
       id: 2,
       title: "Pearl Necklace",
-      description: "Elegant strand of cultured Akoya pearls with a 14k gold clasp.",
+      description: "Elegant strand of cultured Akoya pearls.",
       creator: "Mikimoto",
       imgURL: "https://example.com/pearl-necklace.jpg",
       type: "Necklace",
@@ -67,7 +65,7 @@ export class JewelleryListComponent {
       title: "Emerald Pendant",
       description: "Stunning emerald pendant surrounded by diamonds, set in white gold.",
       creator: "Harry Winston",
-      imgURL: "https://example.com/emerald-pendant.jpg",
+      imgURL: "https://example.com/emerald-pendant.jpg", // Unique image for each item
       type: "Pendant",
       price: 7500.00
     }
