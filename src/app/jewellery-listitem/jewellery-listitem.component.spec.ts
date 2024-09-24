@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {JewelleryListItemComponent} from './jewellery-listlitem.component';
+import {JewelleryListItemComponent} from './jewellery-listitem.component';
 
 describe('JewelleryListlitemComponent', () => {
   let component: JewelleryListItemComponent;

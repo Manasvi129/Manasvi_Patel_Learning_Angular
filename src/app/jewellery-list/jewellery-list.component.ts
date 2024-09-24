@@ -1,4 +1,4 @@
-import {JewelleryListItemComponent} from "../jewellery-listitem/jewellery-listlitem.component";
+import {JewelleryListItemComponent} from "../jewellery-listitem/jewellery-listitem.component";
 
 interface Jewellery {
   id: number;

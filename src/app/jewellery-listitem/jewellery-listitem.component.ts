@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'jewellery-list-item',
-  templateUrl: './jewellery-list-item.component.html',
+  templateUrl: './jewellery-listitem.component.html',
   styleUrls: ['./jewellery-list-item.component.css'],
   standalone: true
 })

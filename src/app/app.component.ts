@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { Jewellery } from './models/jewel.interface';
 import { JsonPipe, NgForOf } from "@angular/common";
 import {JewelleryListComponent} from "./jewellery-list/jewellery-list.component";
-import {JewelleryListItemComponent} from "./jewellery-listitem/jewellery-listlitem.component";
+import {JewelleryListItemComponent} from "./jewellery-listitem/jewellery-listitem.component";
 
 @Component({
   selector: 'app-root',
