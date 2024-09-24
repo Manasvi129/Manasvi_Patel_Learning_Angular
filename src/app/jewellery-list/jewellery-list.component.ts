@@ -11,7 +11,7 @@ interface Jewellery {
 }
 
 import { Component } from '@angular/core';
-import {NgStyle} from "@angular/common";
+import {NgClass, NgStyle} from "@angular/common";
 
 @Component({
   selector: 'jewellery-list',
@@ -19,7 +19,8 @@ import {NgStyle} from "@angular/common";
   standalone: true,
   imports: [
     JewelleryListItemComponent,
-    NgStyle
+    NgStyle,
+    NgClass
   ],
   styleUrls: ['./jewellery-list.component.css']
 })
