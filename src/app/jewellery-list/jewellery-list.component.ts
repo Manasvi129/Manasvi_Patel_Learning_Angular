@@ -23,7 +23,7 @@ export class JewelleryListComponent implements OnInit {
 
   ngOnInit(): void {
     this.jewelleryService.getAllItems().subscribe(items => {
-      this.jewelleryItems = items; // Assign the fetched items to the component property
+      this.jewelleryItems = items; // Fetch and assign items
     });
   }
 }
