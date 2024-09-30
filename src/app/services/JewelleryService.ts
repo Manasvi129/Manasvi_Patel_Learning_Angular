@@ -1,5 +1,6 @@
 // services/jewellery.service.ts
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { jewelleryItems, Jewellery } from '../data/mock-jewellery';
 
 @Injectable({
@@ -8,6 +9,12 @@ import { jewelleryItems, Jewellery } from '../data/mock-jewellery';
 export class JewelleryService {
 
   private items: Jewellery[] = jewelleryItems;
+
+  // Method to return an Observable of the jewellery items
+  getAllItems(): Observable<Jewellery[]> {
+    return of(this.items); // Wraps the items in an Observable
+  }
+
 
   // Get all jewellery items
   getAll(): Jewellery[] {

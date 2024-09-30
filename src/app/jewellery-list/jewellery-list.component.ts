@@ -22,6 +22,8 @@ export class JewelleryListComponent implements OnInit {
   constructor(private jewelleryService: JewelleryService) {} // Inject the service
 
   ngOnInit(): void {
-    this.jewelleryItems = this.jewelleryService.getAll(); // Fetch all items on initialization
+    this.jewelleryService.getAllItems().subscribe(items => {
+      this.jewelleryItems = items; // Assign the fetched items to the component property
+    });
   }
 }
