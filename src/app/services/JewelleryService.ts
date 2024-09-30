@@ -1,33 +1,42 @@
-// services/JewelleryService.ts
-import { mockContent, IContent } from '../data/mock-jewellery';
+// services/jewellery.service.ts
+import { Injectable } from '@angular/core';
+import { jewelleryItems, Jewellery } from '../data/mock-jewellery';
 
-class JewelleryService {
-  getAll(): IContent[] {
-    return mockContent;
+@Injectable({
+  providedIn: 'root' // This makes the service available throughout the application
+})
+export class JewelleryService {
+
+  private items: Jewellery[] = jewelleryItems;
+
+  // Get all jewellery items
+  getAll(): Jewellery[] {
+    return this.items;
   }
 
-  getById(id: number): IContent | undefined {
-    return mockContent.find(content => content.id === id);
+  // Get a jewellery item by ID
+  getById(id: number): Jewellery | undefined {
+    return this.items.find(item => item.id === id);
   }
 
-  // Additional CRUD methods (create, update, delete) can be added here
-  create(newItem: IContent): void {
-    mockContent.push(newItem);
+  // Create a new jewellery item
+  create(newItem: Jewellery): void {
+    this.items.push(newItem);
   }
 
-  update(id: number, updatedItem: Partial<IContent>): void {
-    const index = mockContent.findIndex(content => content.id === id);
+  // Update an existing jewellery item by ID
+  update(id: number, updatedItem: Partial<Jewellery>): void {
+    const index = this.items.findIndex(item => item.id === id);
     if (index !== -1) {
-      mockContent[index] = { ...mockContent[index], ...updatedItem };
+      this.items[index] = { ...this.items[index], ...updatedItem };
     }
   }
 
+  // Delete a jewellery item by ID
   delete(id: number): void {
-    const index = mockContent.findIndex(content => content.id === id);
+    const index = this.items.findIndex(item => item.id === id);
     if (index !== -1) {
-      mockContent.splice(index, 1);
+      this.items.splice(index, 1);
     }
   }
 }
-
-export default new JewelleryService();

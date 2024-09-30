@@ -1,8 +1,8 @@
-
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { JewelleryListItemComponent } from "../jewellery-listitem/jewellery-listitem.component";
 import { NgClass, NgForOf } from "@angular/common";
-import { jewelleryItems, Jewellery } from '../data/mock-jewellery'; // Import the mock data
+import { JewelleryService } from '../services/JewelleryService'; // Import the service
+import { Jewellery } from '../data/mock-jewellery';
 
 @Component({
   selector: 'jewellery-list',
@@ -15,6 +15,13 @@ import { jewelleryItems, Jewellery } from '../data/mock-jewellery'; // Import th
   ],
   styleUrls: ['./jewellery-list.component.css']
 })
-export class JewelleryListComponent {
-  jewelleryItems = jewelleryItems; // Use the imported array
+export class JewelleryListComponent implements OnInit {
+
+  jewelleryItems: Jewellery[] = [];
+
+  constructor(private jewelleryService: JewelleryService) {} // Inject the service
+
+  ngOnInit(): void {
+    this.jewelleryItems = this.jewelleryService.getAll(); // Fetch all items on initialization
+  }
 }
