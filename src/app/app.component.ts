@@ -1,37 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { JewelleryListComponent } from "./jewellery-list/jewellery-list.component";
+import { JewelleryListItemComponent } from "./jewellery-listitem/jewellery-listitem.component";
+import { JewelleryService } from './services/JewelleryService';
 import { Jewellery } from './models/jewel.interface';
-import { JsonPipe, NgForOf } from "@angular/common";
-import {JewelleryListComponent} from "./jewellery-list/jewellery-list.component";
-import {JewelleryListItemComponent} from "./jewellery-listitem/jewellery-listitem.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, JsonPipe, JewelleryListComponent, JewelleryListItemComponent],
+  imports: [CommonModule, RouterOutlet, JewelleryListComponent, JewelleryListItemComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Jewel Catalog';
+  jewelList: Jewellery[] = [];
+  featuredItem: Jewellery | undefined;
 
-  jewel1: Jewellery = {id: 1, name: "Diamond Ring", type: "Ring", caratWeight: 1.5, price: 5000, description: "Stunning solitaire diamond ring with a brilliant cut"};
-  jewel2: Jewellery = {id: 2, name: "Pearl Necklace", type: "Necklace", caratWeight: 0.5, price: 2000, description: "Elegant freshwater pearl necklace with a silver clasp"};
+  constructor(private jewelleryService: JewelleryService) {}
 
-  jewelList: Jewellery[] = [
-    this.jewel1,
-    this.jewel2,
-    {id: 3, name: "Sapphire Earrings", type: "Earrings", caratWeight: 0.75, price: 1500, description: "Beautiful blue sapphire stud earrings set in white gold"},
-    {id: 4, name: "Emerald Bracelet", type: "Bracelet", caratWeight: 2.0, price: 3500, description: "Elegant emerald bracelet featuring vibrant green stones"},
-    {id: 5, name: "Ruby Pendant", type: "Pendant", caratWeight: 1.0, price: 2500, description: "Exquisite ruby pendant with a delicate gold chain"},
-    {id: 6, name: "Opal Brooch", type: "Brooch", caratWeight: 1.25, price: 1800, description: "Vintage-style opal brooch with intricate filigree work"}
-  ];
-
-  toggleDescription(jewel: Jewellery): void {
-    if (jewel.description) {
-      jewel.description = undefined;
-    } else {
-      jewel.description = "No description available";
-    }
+  ngOnInit() {
+    this.jewelleryService.getAllItems().subscribe(items => {
+      this.jewelList = items;
+      // Retrieve a specific item (let's say with id 3)
+      this.featuredItem = items.find(item => item.id === 3);
+    });
   }
 }

@@ -1,11 +1,3 @@
 <div class="jewellery-list">
-  <jewellery-list-item *ngFor="let item of jewelleryItems; let i = index"
-                       [ngClass]="i % 2 === 0 ? 'even-item' : 'odd-item'"
-                       [title]="item.title"
-                       [description]="item.description"
-                       [creator]="item.creator"
-                       [imgURL]="item.imgURL"
-                       [type]="item.type"
-                       [price]="item.price">
-  </jewellery-list-item>
+  <app-jewellery-listitem *ngFor="let item of jewelleryItems" [jewel]="item"></app-jewellery-listitem>
 </div>

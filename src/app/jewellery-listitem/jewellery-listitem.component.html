@@ -1,8 +1,7 @@
 <div class="jewellery-item">
-  <img [src]="imgURL" alt="{{ title }}" />
-  <h2>{{ title }}</h2>
-  <p><strong>Description:</strong> {{ description }}</p>
-  <p><strong>Creator:</strong> {{ creator }}</p>
-  <p><strong>Type:</strong> {{ type }}</p>
-  <p><strong>Price:</strong> ${{ price.toFixed(2) }}</p>
+  <h3>{{ jewel.name }}</h3>
+  <p>Type: {{ jewel.type }}</p>
+  <p>Carat Weight: {{ jewel.caratWeight }}</p>
+  <p>Price: {{ jewel.price | currency }}</p>
+  <p *ngIf="jewel.description">Description: {{ jewel.description }}</p>
 </div>
