@@ -1,3 +1,5 @@
-<div class="jewellery-list">
-  <app-jewellery-listitem *ngFor="let item of jewelleryItems" [jewel]="item"></app-jewellery-listitem>
-</div>
+<ul>
+  <li *ngFor="let item of jewelleryItems" (click)="onItemClick(item)" style="cursor: pointer;">
+    <app-jewellery-listitem [jewel]="item"></app-jewellery-listitem>
+  </li>
+</ul>

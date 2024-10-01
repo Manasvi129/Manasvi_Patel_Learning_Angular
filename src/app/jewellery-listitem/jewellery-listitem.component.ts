@@ -12,9 +12,7 @@ import { CurrencyPipe } from '@angular/common';
 export class JewelleryListItemComponent {
   @Input({
     transform: (value: Jewellery): Jewellery => {
-      // You can add any transformation logic here if needed
-      // For now, we'll just return the value as is
-      return value;
+      return value; // You can add any transformation logic here if needed
     }
   }) jewel!: Jewellery;
 }

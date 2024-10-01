@@ -23,8 +23,11 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.jewelleryService.getAllItems().subscribe(items => {
       this.jewelList = items;
-      // Retrieve a specific item (let's say with id 3)
-      this.featuredItem = items.find(item => item.id === 3);
+      this.featuredItem = items[0]; // Set the first item as featured initially
     });
+  }
+
+  onItemClick(item: Jewellery) {
+    this.featuredItem = item; // Update the featured item when a list item is clicked
   }
 }

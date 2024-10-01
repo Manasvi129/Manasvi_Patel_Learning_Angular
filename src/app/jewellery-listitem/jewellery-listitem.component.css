@@ -1,7 +1,86 @@
-.jewellery-item img {
-  max-width: 100%; /* Ensures the image does not exceed the width of its container */
-  height: auto;    /* Maintains aspect ratio */
-  max-height: 200px; /* Set a maximum height for the image */
-  display: block;  /* Ensures there are no gaps below the image */
-  margin: 0 auto;  /* Centers the image horizontally */
+.jewel-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff; /* White background for items */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.jewel-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.jewel-image {
+  height: 200px; /* Adjust height as needed */
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area without distortion */
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1); /* Zoom effect on hover */
+    }
+  }
+}
+
+.jewel-info {
+  padding: 15px;
+
+  h3 {
+    margin-top: 10px;
+    color: #2c3e50; /* Darker blue-gray for titles */
+    font-size: 1.5em; /* Increased font size for better visibility */
+    font-weight: bold;
+    text-align: center; /* Center align the title */
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #e44d26; /* Change color on hover */
+    }
+  }
+
+  p {
+    margin: 5px 0;
+    color: #34495e; /* Darker gray for text */
+
+    &.price {
+      color: #e44d26; /* Bright red-orange for prices */
+      font-weight: bold;
+      font-size: 1.2em; /* Slightly larger price font */
+      text-align: center; /* Center align the price */
+    }
+
+    &.description {
+      font-size: 0.9em;
+      line-height: 1.4;
+      max-height: 3em; /* Limit height for description */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* Limit to three lines */
+      -webkit-box-orient: vertical;
+      text-align: center; /* Center align the description */
+    }
+  }
+
+  .type {
+    display: inline-block;
+    background-color: #f9f9f9; /* Light gray background for type labels */
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px; /* Add some space above type label */
+    text-align: center; /* Center align the type label */
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #eaeaea; /* Change background on hover */
+    }
+  }
 }

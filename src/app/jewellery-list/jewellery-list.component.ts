@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { JewelleryListItemComponent } from "../jewellery-listitem/jewellery-listitem.component";
 import { NgClass, NgForOf } from "@angular/common";
 import { JewelleryService } from '../services/JewelleryService';
@@ -17,6 +17,8 @@ import { Jewellery } from '../models/jewel.interface';
 })
 export class JewelleryListComponent implements OnInit {
   @Input() jewels: Jewellery[] | null = null;
+  @Output() itemClick = new EventEmitter<Jewellery>();
+
   jewelleryItems: Jewellery[] = [];
 
   constructor(private jewelleryService: JewelleryService) {}
@@ -29,5 +31,9 @@ export class JewelleryListComponent implements OnInit {
         this.jewelleryItems = items;
       });
     }
+  }
+
+  onItemClick(item: Jewellery) {
+    this.itemClick.emit(item);
   }
 }
