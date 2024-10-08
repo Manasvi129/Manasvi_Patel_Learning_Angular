@@ -1,3 +1,5 @@
+<app-navigation-bar></app-navigation-bar>
+
 <h1>{{ title }}</h1>
 
 <!-- Featured Item -->
@@ -7,3 +9,6 @@
 <!-- Clickable Jewellery List -->
 <h2>All Jewellery</h2>
 <jewellery-list [jewels]="jewelList" (itemClick)="onItemClick($event)"></jewellery-list>
+
+<!-- Router Outlet -->
+<router-outlet></router-outlet>

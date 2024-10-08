@@ -5,11 +5,12 @@ import { JewelleryListComponent } from "./jewellery-list/jewellery-list.componen
 import { JewelleryListItemComponent } from "./jewellery-listitem/jewellery-listitem.component";
 import { JewelleryService } from './services/JewelleryService';
 import { Jewellery } from './models/jewel.interface';
+import {NavigationBarComponent} from "./navigation-bar/navigation-bar.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, JewelleryListComponent, JewelleryListItemComponent],
+  imports: [CommonModule, RouterOutlet, JewelleryListComponent, JewelleryListItemComponent, NavigationBarComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
