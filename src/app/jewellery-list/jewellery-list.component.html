@@ -1,5 +1,7 @@
 <ul>
-  <li *ngFor="let item of jewelleryItems" (click)="onItemClick(item)" style="cursor: pointer;">
+  <li *ngFor="let item of jewelleryItems" style="cursor: pointer;">
     <app-jewellery-listitem [jewel]="item"></app-jewellery-listitem>
+    <button (click)="editItem(item.id)">Edit</button>
+    <button (click)="deleteItem(item.id)">Delete</button>
   </li>
 </ul>

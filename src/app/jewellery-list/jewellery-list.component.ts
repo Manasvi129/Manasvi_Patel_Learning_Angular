@@ -3,6 +3,7 @@ import { JewelleryListItemComponent } from "../jewellery-listitem/jewellery-list
 import { NgClass, NgForOf } from "@angular/common";
 import { JewelleryService } from '../services/JewelleryService';
 import { Jewellery } from '../models/jewel.interface';
+import { Router } from '@angular/router'; // Import Router for navigation
 
 @Component({
   selector: 'jewellery-list',
@@ -21,7 +22,7 @@ export class JewelleryListComponent implements OnInit {
 
   jewelleryItems: Jewellery[] = [];
 
-  constructor(private jewelleryService: JewelleryService) {}
+  constructor(private jewelleryService: JewelleryService, private router: Router) {} // Inject Router
 
   ngOnInit(): void {
     if (this.jewels) {
@@ -35,5 +36,23 @@ export class JewelleryListComponent implements OnInit {
 
   onItemClick(item: Jewellery) {
     this.itemClick.emit(item);
+  }
+
+  editItem(id: number) {
+    this.router.navigate(['/modify', id]);
+  }
+
+  deleteItem(id: number) {
+    if (confirm('Are you sure you want to delete this item?')) {
+      this.jewelleryService.deleteItem(id).subscribe(success => {
+        if (success) {
+          // Remove the item from the local list
+          this.jewelleryItems = this.jewelleryItems.filter(item => item.id !== id);
+          console.log('Item deleted successfully');
+        }
+      }, error => {
+        console.error('Error deleting item', error);
+      });
+    }
   }
 }

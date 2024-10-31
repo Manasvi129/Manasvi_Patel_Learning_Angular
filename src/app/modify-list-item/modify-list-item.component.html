@@ -1,1 +1,58 @@
-<p>modify-list-item works!</p>
+<form [formGroup]="modifyForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name" placeholder="Enter jewellery name">
+    <div *ngIf="modifyForm.get('name')?.invalid && (modifyForm.get('name')?.dirty || modifyForm.get('name')?.touched)">
+      <small *ngIf="modifyForm.get('name')?.errors?.['required']">Name is required.</small>
+      <small *ngIf="modifyForm.get('name')?.errors?.['minlength']">Name must be at least 3 characters long.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="type">Type:</label>
+    <input type="text" id="type" formControlName="type" placeholder="Enter jewellery type">
+    <div *ngIf="modifyForm.get('type')?.invalid && (modifyForm.get('type')?.dirty || modifyForm.get('type')?.touched)">
+      <small *ngIf="modifyForm.get('type')?.errors?.['required']">Type is required.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="caratWeight">Carat Weight:</label>
+    <input type="number" id="caratWeight" formControlName="caratWeight" placeholder="Enter carat weight">
+    <div *ngIf="modifyForm.get('caratWeight')?.invalid && (modifyForm.get('caratWeight')?.dirty || modifyForm.get('caratWeight')?.touched)">
+      <small *ngIf="modifyForm.get('caratWeight')?.errors?.['required']">Carat Weight is required.</small>
+      <small *ngIf="modifyForm.get('caratWeight')?.errors?.['min']">Carat Weight must be a positive number.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="price">Price:</label>
+    <input type="number" id="price" formControlName="price" placeholder="Enter price">
+    <div *ngIf="modifyForm.get('price')?.invalid && (modifyForm.get('price')?.dirty || modifyForm.get('price')?.touched)">
+      <small *ngIf="modifyForm.get('price')?.errors?.['required']">Price is required.</small>
+      <small *ngIf="modifyForm.get('price')?.errors?.['min']">Price must be a positive number.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description" placeholder="Enter description"></textarea>
+    <div *ngIf="modifyForm.get('description')?.invalid && (modifyForm.get('description')?.dirty || modifyForm.get('description')?.touched)">
+      <small *ngIf="modifyForm.get('description')?.errors?.['required']">Description is required.</small>
+      <small *ngIf="modifyForm.get('description')?.errors?.['maxlength']">Description must not exceed 500 characters.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="imageUrl">Image URL:</label>
+    <input type="text" id="imageUrl" formControlName="imageUrl" placeholder="Enter image URL">
+    <div *ngIf="modifyForm.get('imageUrl')?.invalid && (modifyForm.get('imageUrl')?.dirty || modifyForm.get('imageUrl')?.touched)">
+      <small *ngIf="modifyForm.get('imageUrl')?.errors?.['required']">Image URL is required.</small>
+      <small *ngIf="modifyForm.get('imageUrl')?.errors?.['pattern']">Please enter a valid URL.</small>
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="!modifyForm.valid">{{ isAddMode ? 'Add Item' : 'Update Item' }}</button>
+
+</form>
