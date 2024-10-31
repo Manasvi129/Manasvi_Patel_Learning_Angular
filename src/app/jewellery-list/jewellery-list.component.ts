@@ -22,7 +22,7 @@ export class JewelleryListComponent implements OnInit {
 
   jewelleryItems: Jewellery[] = [];
 
-  constructor(private jewelleryService: JewelleryService, private router: Router) {} // Inject Router
+  constructor(private jewelleryService: JewelleryService, private router: Router) {}
 
   ngOnInit(): void {
     if (this.jewels) {
