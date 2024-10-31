@@ -17,29 +17,29 @@ import { Router } from '@angular/router'; // Import Router for navigation
   styleUrls: ['./jewellery-list.component.css']
 })
 export class JewelleryListComponent implements OnInit {
-  @Input() jewels: Jewellery[] | null = null;
-  @Output() itemClick = new EventEmitter<Jewellery>();
+  @Input() jewels: Jewellery[] | null = null; // Input property to receive jewellery items
+  @Output() itemClick = new EventEmitter<Jewellery>(); // Event emitter for item clicks
 
-  jewelleryItems: Jewellery[] = [];
+  jewelleryItems: Jewellery[] = []; // Local array to store jewellery items
 
   constructor(private jewelleryService: JewelleryService, private router: Router) {}
 
   ngOnInit(): void {
     if (this.jewels) {
-      this.jewelleryItems = this.jewels;
+      this.jewelleryItems = this.jewels; // Use input jewels if provided
     } else {
       this.jewelleryService.getAllItems().subscribe(items => {
-        this.jewelleryItems = items;
+        this.jewelleryItems = items; // Fetch items if no input provided
       });
     }
   }
 
   onItemClick(item: Jewellery) {
-    this.itemClick.emit(item);
+    this.itemClick.emit(item); // Emit item click event
   }
 
   editItem(id: number) {
-    this.router.navigate(['/modify', id]);
+    this.router.navigate(['/modify', id]); // Navigate to modify route with item ID
   }
 
   deleteItem(id: number) {
