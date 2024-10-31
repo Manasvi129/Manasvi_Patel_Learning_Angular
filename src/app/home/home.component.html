@@ -1,1 +1,9 @@
-<p>home works!</p>
+<h1>Jewel Catalog</h1>
+
+<!-- Featured Item -->
+<h2>Featured Item</h2>
+<app-jewellery-listitem *ngIf="featuredItem" [jewel]="featuredItem"></app-jewellery-listitem>
+
+<!-- Clickable Jewellery List -->
+<h2>All Jewellery</h2>
+<jewellery-list [jewels]="jewelList" (itemClick)="onItemClick($event)"></jewellery-list>

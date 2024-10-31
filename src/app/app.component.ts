@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JewelleryListComponent } from "./jewellery-list/jewellery-list.component";
 import { JewelleryListItemComponent } from "./jewellery-listitem/jewellery-listitem.component";
 import { JewelleryService } from './services/JewelleryService';
@@ -10,7 +11,7 @@ import {NavigationBarComponent} from "./navigation-bar/navigation-bar.component"
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, JewelleryListComponent, JewelleryListItemComponent, NavigationBarComponent],
+  imports: [CommonModule, RouterOutlet, FormsModule, ReactiveFormsModule, JewelleryListComponent, JewelleryListItemComponent, NavigationBarComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
