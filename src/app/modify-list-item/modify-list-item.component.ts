@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { JewelleryService } from '../services/JewelleryService';
 import { Jewellery } from '../models/jewel.interface';
+import { ActivatedRoute } from '@angular/router'; // Import ActivatedRoute
 
 @Component({
   selector: 'app-modify-list-item',
@@ -17,11 +18,13 @@ export class ModifyListItemComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private jewelleryService: JewelleryService
+    private jewelleryService: JewelleryService,
+    private route: ActivatedRoute // Inject ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.initForm();
+    this.loadItemForEditIfIdPresent();
   }
 
   initForm(): void {
@@ -61,9 +64,17 @@ export class ModifyListItemComponent implements OnInit {
     this.jewelleryService.updateItem(item).subscribe(
       (result: Jewellery | undefined) => {
         console.log('Item updated successfully', result);
+        this.modifyForm.reset(); // Reset the form after updating
       },
       (error: any) => console.error('Error updating item', error)
     );
+  }
+
+  loadItemForEditIfIdPresent(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.loadItemForEdit(+id); // Load item for editing if ID is present
+    }
   }
 
   loadItemForEdit(id: number): void {
