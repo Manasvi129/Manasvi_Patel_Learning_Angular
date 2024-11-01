@@ -7,5 +7,5 @@ export const routes: Routes = [
   { path: '', component: HomeComponent }, // Home route
   { path: 'modify', component: ModifyListItemComponent },
   { path: 'modify/:id', component: ModifyListItemComponent },
-  { path: '**', component: PageNotFoundComponent } // Wildcard route for 404 page
+  { path: '**', component: PageNotFoundComponent }
 ];
