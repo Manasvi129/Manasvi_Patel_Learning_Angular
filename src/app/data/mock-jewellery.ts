@@ -8,7 +8,7 @@ export const jewelleryItems: Jewellery[] = [
     name: "Diamond Solitaire Ring",
     type: "Ring",
     caratWeight: 1.5,
-    price: 5999.99,
+    price: 5999.10,
     description: "A classic diamond solitaire set in white gold.",
     imageUrl: "https://cdn.shopify.com/s/files/1/0081/7496/0736/t/5/assets/pf-2b3777ef-2ff8-442e-be4d-7cdf4e124d90--saltandpepperdiamondclawprongs.jpg?v=1576239493"
   },
