@@ -1,3 +1,7 @@
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
 <ul>
   <li *ngFor="let item of jewelleryItems" style="cursor: pointer;">
     <app-jewellery-listitem [jewel]="item"></app-jewellery-listitem>

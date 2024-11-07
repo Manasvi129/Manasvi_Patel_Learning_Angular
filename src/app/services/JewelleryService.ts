@@ -1,51 +1,42 @@
-// src/app/services/jewellery.service.ts
-
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Jewellery } from '../models/jewel.interface';
-import { jewelleryItems } from '../data/mock-jewellery';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JewelleryService {
-  private jewelleryItems: Jewellery[] = jewelleryItems;
+  private apiUrl = 'https://your-api-url.com/api/jewelleries';
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
   // CREATE: Add a new item
   addItem(item: Omit<Jewellery, 'id'>): Observable<Jewellery> {
-    const newId = Math.max(...this.jewelleryItems.map(i => i.id)) + 1;
-    const newItem: Jewellery = { ...item, id: newId };
-    this.jewelleryItems.push(newItem);
-    return of(newItem);
+    return this.http.post<Jewellery>(this.apiUrl, item, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
   }
 
   // READ: Get all items
   getAllItems(): Observable<Jewellery[]> {
-    return of(this.jewelleryItems);
+    return this.http.get<Jewellery[]>(this.apiUrl);
   }
 
   // READ: Get a single item by ID
-  getItemById(id: number): Observable<Jewellery | undefined> {
-    const item = this.jewelleryItems.find(item => item.id === id);
-    return of(item);
+  getItemById(id: number): Observable<Jewellery> {
+    return this.http.get<Jewellery>(`${this.apiUrl}/${id}`);
   }
 
   // UPDATE: Update an existing item
-  updateItem(updatedItem: Jewellery): Observable<Jewellery | undefined> {
-    const index = this.jewelleryItems.findIndex(item => item.id === updatedItem.id);
-    if (index !== -1) {
-      this.jewelleryItems[index] = { ...updatedItem };
-      return of(this.jewelleryItems[index]);
-    }
-    return of(undefined);
+  updateItem(updatedItem: Jewellery): Observable<Jewellery> {
+    return this.http.put<Jewellery>(`${this.apiUrl}/${updatedItem.id}`, updatedItem, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
   }
 
   // DELETE: Remove an item
   deleteItem(id: number): Observable<boolean> {
-    const initialLength = this.jewelleryItems.length;
-    this.jewelleryItems = this.jewelleryItems.filter(item => item.id !== id);
-    return of(this.jewelleryItems.length !== initialLength);
+    return this.http.delete<boolean>(`${this.apiUrl}/${id}`);
   }
 }
