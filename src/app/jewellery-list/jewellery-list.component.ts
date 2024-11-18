@@ -4,6 +4,7 @@ import { NgClass, NgForOf, NgIf, UpperCasePipe, CurrencyPipe, DecimalPipe } from
 import { JewelleryService } from '../services/JewelleryService';
 import { Jewellery } from '../models/jewel.interface';
 import { Router } from '@angular/router';
+import {CaratValuePipe} from "../pipes/carat-value.pipe";
 
 @Component({
   selector: 'jewellery-list',
@@ -16,7 +17,8 @@ import { Router } from '@angular/router';
     NgIf,
     UpperCasePipe,
     CurrencyPipe,
-    DecimalPipe
+    DecimalPipe,
+    CaratValuePipe
   ],
   styleUrls: ['./jewellery-list.component.css']
 })
