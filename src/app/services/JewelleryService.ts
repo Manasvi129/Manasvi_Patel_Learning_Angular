@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Jewellery } from '../models/jewel.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JewelleryService {
-  private apiUrl = 'https://your-api-url.com/api/jewelleries';
-
+  private apiUrl = '/api/jewelleries'; // For local development
   constructor(private http: HttpClient) {}
 
   // CREATE: Add a new item
   addItem(item: Omit<Jewellery, 'id'>): Observable<Jewellery> {
     return this.http.post<Jewellery>(this.apiUrl, item, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });
   }
 
@@ -31,7 +29,6 @@ export class JewelleryService {
   // UPDATE: Update an existing item
   updateItem(updatedItem: Jewellery): Observable<Jewellery> {
     return this.http.put<Jewellery>(`${this.apiUrl}/${updatedItem.id}`, updatedItem, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });
   }
 

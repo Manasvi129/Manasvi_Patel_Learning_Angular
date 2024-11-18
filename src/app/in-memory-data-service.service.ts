@@ -64,3 +64,4 @@ export class InMemoryDataService implements InMemoryDbService {
     return jewelleries.length > 0 ? Math.max(...jewelleries.map(jewellery => jewellery.id)) + 1 : 11;
   }
 }
+

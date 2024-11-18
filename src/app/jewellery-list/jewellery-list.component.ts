@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { JewelleryListItemComponent } from "../jewellery-listitem/jewellery-listitem.component";
-import { NgClass, NgForOf } from "@angular/common";
+import {NgClass, NgForOf, NgIf} from "@angular/common";
 import { JewelleryService } from '../services/JewelleryService';  // Ensure this service is correctly implemented
 import { Jewellery } from '../models/jewel.interface';
 import { Router } from '@angular/router';
@@ -12,25 +12,26 @@ import { Router } from '@angular/router';
   imports: [
     JewelleryListItemComponent,
     NgClass,
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   styleUrls: ['./jewellery-list.component.css']
 })
 export class JewelleryListComponent implements OnInit {
-  @Input() jewels: Jewellery[] | null = null; // Input property to receive jewellery items
-  @Output() itemClick = new EventEmitter<Jewellery>(); // Event emitter for item clicks
+  @Input() jewels: Jewellery[] | null = null;
+  @Output() itemClick = new EventEmitter<Jewellery>();
 
-  jewelleryItems: Jewellery[] = []; // Local array to store jewellery items
+  jewelleryItems: Jewellery[] = [];
   protected errorMessage:  string |null = null;
 
   constructor(private jewelleryService: JewelleryService, private router: Router) {}
 
   ngOnInit(): void {
-    if (this.jewels) {
-      this.jewelleryItems = this.jewels; // Use input jewels if provided
-    } else {
-      this.fetchJewelleryItems(); // Fetch items if no input provided
-    }
+    //if (this.jewels) {
+      //this.jewelleryItems = this.jewels;
+    //} else {
+      this.fetchJewelleryItems();
+    //}
   }
 
   fetchJewelleryItems(): void {
@@ -45,11 +46,11 @@ export class JewelleryListComponent implements OnInit {
   }
 
   onItemClick(item: Jewellery): void {
-    this.itemClick.emit(item); // Emit item click event
+    this.itemClick.emit(item);
   }
 
   editItem(id: number): void {
-    this.router.navigate(['/modify', id]); // Navigate to modify route with item ID
+    this.router.navigate(['/modify', id]);
   }
 
   deleteItem(id: number): void {
