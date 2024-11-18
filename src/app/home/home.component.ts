@@ -21,11 +21,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.jewelleryService.getAllItems().subscribe(items => {
       this.jewelList = items;
-      this.featuredItem = items[0]; // Set the first item as featured initially
+      this.featuredItem = items[0];
     });
   }
 
   onItemClick(item: Jewellery) {
-    this.featuredItem = item; // Update the featured item when a list item is clicked
+    this.featuredItem = item;
   }
 }
