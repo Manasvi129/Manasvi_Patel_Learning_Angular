@@ -5,6 +5,13 @@
 <ul>
   <li *ngFor="let item of jewelleryItems" style="cursor: pointer;">
     <app-jewellery-listitem [jewel]="item"></app-jewellery-listitem>
+    <div>
+      <p>Name: {{ item.name }}</p>
+      <p>Type: {{ item.type | uppercase }}</p>
+      <p>Weight: {{ item.caratWeight | number:'1.2-2' }} carats</p>
+      <p>Price: {{ item.price | currency:'CAD':'symbol':'1.2-2' }}</p>
+      <p>Description: {{ item.description }}</p>
+    </div>
     <button (click)="editItem(item.id)">Edit</button>
     <button (click)="deleteItem(item.id)">Delete</button>
   </li>

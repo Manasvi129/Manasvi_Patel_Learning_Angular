@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { JewelleryListItemComponent } from "../jewellery-listitem/jewellery-listitem.component";
-import {NgClass, NgForOf, NgIf} from "@angular/common";
-import { JewelleryService } from '../services/JewelleryService';  // Ensure this service is correctly implemented
+import { NgClass, NgForOf, NgIf, UpperCasePipe, CurrencyPipe, DecimalPipe } from "@angular/common";
+import { JewelleryService } from '../services/JewelleryService';
 import { Jewellery } from '../models/jewel.interface';
 import { Router } from '@angular/router';
 
@@ -13,7 +13,10 @@ import { Router } from '@angular/router';
     JewelleryListItemComponent,
     NgClass,
     NgForOf,
-    NgIf
+    NgIf,
+    UpperCasePipe,
+    CurrencyPipe,
+    DecimalPipe
   ],
   styleUrls: ['./jewellery-list.component.css']
 })
@@ -22,25 +25,22 @@ export class JewelleryListComponent implements OnInit {
   @Output() itemClick = new EventEmitter<Jewellery>();
 
   jewelleryItems: Jewellery[] = [];
-  protected errorMessage:  string |null = null;
+  protected errorMessage: string | null = null;
 
   constructor(private jewelleryService: JewelleryService, private router: Router) {}
 
   ngOnInit(): void {
-    //if (this.jewels) {
-      //this.jewelleryItems = this.jewels;
-    //} else {
-      this.fetchJewelleryItems();
-    //}
+    this.fetchJewelleryItems();
   }
 
   fetchJewelleryItems(): void {
     this.jewelleryService.getAllItems().subscribe(
       items => {
-        this.jewelleryItems = items; // Store fetched items
+        this.jewelleryItems = items;
       },
       error => {
         console.error('Error fetching jewellery items', error);
+        this.errorMessage = 'Failed to fetch jewellery items. Please try again later.';
       }
     );
   }
@@ -58,7 +58,6 @@ export class JewelleryListComponent implements OnInit {
       this.jewelleryService.deleteItem(id).subscribe(
         success => {
           if (success) {
-            // Remove the item from the local list
             this.jewelleryItems = this.jewelleryItems.filter(item => item.id !== id);
             console.log('Item deleted successfully');
           }
