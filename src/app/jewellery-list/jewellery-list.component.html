@@ -3,7 +3,7 @@
 </div>
 
 <ul>
-  <li *ngFor="let item of jewelleryItems" style="cursor: pointer;">
+  <li *ngFor="let item of jewelleryItems" appHoverHighlight highlightColor="lightblue" style="cursor: pointer;">
     <app-jewellery-listitem [jewel]="item"></app-jewellery-listitem>
     <div>
       <p>Name: {{ item.name }}</p>
@@ -13,7 +13,7 @@
       <p>Estimated Value: {{ item.caratWeight | caratValue }}</p>
       <p>Description: {{ item.description }}</p>
     </div>
-    <button (click)="editItem(item.id)">Edit</button>
-    <button (click)="deleteItem(item.id)">Delete</button>
+    <button (click)="editItem(item.id)" appHoverHighlight highlightColor="lightgreen">Edit</button>
+    <button (click)="deleteItem(item.id)" appHoverHighlight highlightColor="lightcoral">Delete</button>
   </li>
 </ul>
