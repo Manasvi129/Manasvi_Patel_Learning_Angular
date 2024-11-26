@@ -6,6 +6,7 @@ import { Jewellery } from '../models/jewel.interface';
 import { Router } from '@angular/router';
 import {CaratValuePipe} from "../pipes/carat-value.pipe";
 import {HoverHighlightDirective} from "../hover-highlight.directive";
+import {MatListModule} from "@angular/material/list";
 
 @Component({
   selector: 'jewellery-list',
@@ -20,7 +21,8 @@ import {HoverHighlightDirective} from "../hover-highlight.directive";
     CurrencyPipe,
     DecimalPipe,
     CaratValuePipe,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    MatListModule
   ],
   styleUrls: ['./jewellery-list.component.css']
 })

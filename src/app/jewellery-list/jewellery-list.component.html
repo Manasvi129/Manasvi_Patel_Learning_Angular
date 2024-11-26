@@ -2,10 +2,10 @@
   {{ errorMessage }}
 </div>
 
-<ul>
-  <li *ngFor="let item of jewelleryItems" appHoverHighlight highlightColor="lightblue" style="cursor: pointer;">
+<mat-list>
+  <mat-list-item *ngFor="let item of jewelleryItems" appHoverHighlight highlightColor="lightblue">
     <app-jewellery-listitem [jewel]="item"></app-jewellery-listitem>
-    <div>
+    <div matLine>
       <p>Name: {{ item.name }}</p>
       <p>Type: {{ item.type | uppercase }}</p>
       <p>Weight: {{ item.caratWeight | number:'1.2-2' }} carats</p>
@@ -13,7 +13,8 @@
       <p>Estimated Value: {{ item.caratWeight | caratValue }}</p>
       <p>Description: {{ item.description }}</p>
     </div>
-    <button (click)="editItem(item.id)" appHoverHighlight highlightColor="lightgreen">Edit</button>
-    <button (click)="deleteItem(item.id)" appHoverHighlight highlightColor="lightcoral">Delete</button>
-  </li>
-</ul>
+    <button mat-raised-button color="primary" (click)="editItem(item.id)" appHoverHighlight highlightColor="lightgreen">Edit</button>
+    <button mat-raised-button color="warn" (click)="deleteItem(item.id)" appHoverHighlight highlightColor="lightcoral">Delete</button>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>

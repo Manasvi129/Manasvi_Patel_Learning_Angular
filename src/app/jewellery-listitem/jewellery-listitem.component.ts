@@ -1,12 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { Jewellery } from '../models/jewel.interface';
 import { CurrencyPipe } from '@angular/common';
+import {MatCardModule} from "@angular/material/card";
 
 @Component({
   selector: 'app-jewellery-listitem',
   templateUrl: './jewellery-listitem.component.html',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, MatCardModule],
   styleUrls: ['./jewellery-listitem.component.css']
 })
 export class JewelleryListItemComponent {

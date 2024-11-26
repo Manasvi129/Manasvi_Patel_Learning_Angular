@@ -4,11 +4,12 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractContro
 import { JewelleryService } from '../services/JewelleryService';
 import { Jewellery } from '../models/jewel.interface';
 import { ActivatedRoute } from '@angular/router';
+import {MatInputModule} from "@angular/material/input";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, MatInputModule],
   templateUrl: './modify-list-item.component.html',
   styleUrls: ['./modify-list-item.component.css']
 })
